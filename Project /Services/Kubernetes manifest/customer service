@@ -1,0 +1,43 @@
+# customerservice-deployment.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customerservice-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: customerservice
+  template:
+    metadata:
+      labels:
+        app: customerservice
+    spec:
+      containers:
+      - name: customerservice
+        image: your-docker-username/customerservice:latest
+        ports:
+        - containerPort: 8080
+      env:
+        - name: MQ_HOST
+          value: your-mq-broker-host
+        - name: MQ_PORT
+          value: "1414"
+        # Add other necessary environment variables for IBM MQ connection
+
+---
+
+# customerservice-service.yaml
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: customerservice-service
+spec:
+  selector:
+    app: customerservice
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
