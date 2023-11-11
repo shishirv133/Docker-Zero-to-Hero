@@ -26,4 +26,9 @@ cd CustomerService
 mvn clean package
 cd ..
 
+# Cleanup: Remove the cloned repositories
+echo "Cleaning up..."
+rm -rf OrderService ProductService CustomerService
+
+
 echo "Build process completed for all microservices."
