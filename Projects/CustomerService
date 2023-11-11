@@ -1,0 +1,11 @@
+// CustomerService.java
+public class CustomerService {
+
+    public String getCustomerDetails(String customerId) {
+        // Logic for retrieving customer details
+        return "Customer details for Customer ID " + customerId +
+                ": Name - John Doe, Email - john.doe@example.com, Phone - 123-456-7890";
+    }
+
+    // Other methods related to customer management
+}
