@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: customerservice
-        image: your-docker-username/customerservice:latest
+        image: shishirv133/customerservice:replaceImageTag
         ports:
         - containerPort: 8080
       env:
