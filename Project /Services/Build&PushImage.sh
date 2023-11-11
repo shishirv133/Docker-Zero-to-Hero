@@ -32,4 +32,4 @@ build_microservice "$PRODUCT_SERVICE_REPO" "ProductService"
 # Build CustomerService
 build_microservice "$CUSTOMER_SERVICE_REPO" "CustomerService"
 
-echo "Build process completed for all microservices."
+echo "Build Images and Pusing has been completed completed for all microservices."
