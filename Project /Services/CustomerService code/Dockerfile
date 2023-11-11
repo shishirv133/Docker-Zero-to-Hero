@@ -1,8 +1,8 @@
-# OrderService Dockerfile
+# CustomerService Dockerfile
 FROM openjdk:11-jre-slim
 
 WORKDIR /app
 
-COPY OrderService.jar /app/OrderService.jar
+COPY CustomerService.jar /app/CustomerService.jar
 
-CMD ["java", "-jar", "OrderService.jar"]
+CMD ["java", "-jar", "CustomerService.jar"]
