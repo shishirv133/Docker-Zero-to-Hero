@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Dockerfile location  for the microservices
-ORDER_SERVICE_REPO="https://${GITHUB_TOKEN}@raw.githubusercontent.com/${GIT_USER_NAME}/${GIT_REPO_NAME}/main/OrderService.git"
-PRODUCT_SERVICE_REPO="https://${GITHUB_TOKEN}@raw.githubusercontent.com/${GIT_USER_NAME}/${GIT_REPO_NAME}/main/ProductService.git"
-CUSTOMER_SERVICE_REPO="https://${GITHUB_TOKEN}@raw.githubusercontent.com/${GIT_USER_NAME}/${GIT_REPO_NAME}/main/CustomerService.git"
+ORDER_SERVICE_REPO="https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}/OrderService.git"
+PRODUCT_SERVICE_REPO="https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}/ProductService.git"
+CUSTOMER_SERVICE_REPO="https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}/CustomerService.git
 
 # Function to build a microservice
 build_microservice() {
