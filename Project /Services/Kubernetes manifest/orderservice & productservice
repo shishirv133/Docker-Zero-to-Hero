@@ -1,0 +1,87 @@
+# orderservice-deployment.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orderservice-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orderservice
+  template:
+    metadata:
+      labels:
+        app: orderservice
+    spec:
+      containers:
+      - name: orderservice
+        image: shishirv133/orderservice:replaceImageTag
+        ports:
+        - containerPort: 8080
+      env:
+        - name: MQ_HOST
+          value: your-mq-broker-host
+        - name: MQ_PORT
+          value: "1414"
+        # Add other necessary environment variables for IBM MQ connection
+
+---
+
+# orderservice-service.yaml
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: orderservice-service
+spec:
+  selector:
+    app: orderservice
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
+------------------------------------------------------------------------------------------------------
+# productservice-deployment.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: productservice-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: productservice
+  template:
+    metadata:
+      labels:
+        app: productservice
+    spec:
+      containers:
+      - name: productservice
+        image: shishirv133/productservice:replaceImageTag
+        ports:
+        - containerPort: 8080
+      env:
+        - name: MQ_HOST
+          value: your-mq-broker-host
+        - name: MQ_PORT
+          value: "1414"
+        # Add other necessary environment variables for IBM MQ connection
+
+---
+
+# productservice-service.yaml
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: productservice-service
+spec:
+  selector:
+    app: productservice
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
